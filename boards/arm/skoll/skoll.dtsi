@@ -1,0 +1,111 @@
+#include <st/f4/stm32f405Xg.dtsi>
+#include <st/f4/stm32f405rgtx-pinctrl.dtsi>
+
+/ {
+
+};
+
+&clk_hse {
+    status = "okay";
+    clock-frequency = <DT_FREQ_M(16)>;
+};
+
+&clk_hsi {
+	status = "okay";
+};
+
+&clk_lse {
+	status = "disabled";
+};
+
+&pll {
+    status = "okay";
+    clocks = <&clk_hse>;
+    div-m = <8>;
+    mul-n = <160>;
+    div-p = <2>;
+};
+
+&rcc {
+    status = "okay";
+    clock-frequency = <DT_FREQ_M(160)>;  
+    ahb-prescaler = <1>; 
+	apb1-prescaler = <4>;
+	apb2-prescaler = <2>;
+};
+
+&adc1 {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    status = "okay";
+    st,adc-prescaler = <1>;
+
+    channel@A {
+        reg = <10>;
+        zephyr,gain = "ADC_GAIN_1";
+        zephyr,reference = "ADC_REF_INTERNAL";
+        zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+        zephyr,resolution = <14>;
+        zephyr,oversampling = <4>;
+        status = "okay";
+    };
+};
+
+&timers3{
+    status = "okay";
+    st,prescaler = <1000>;
+
+    pwm4: pwm4 {
+        status = "okay";
+        pinctrl-0 = <&tim3_ch1_pa6>;
+        pinctrl-names = "default";
+        #pwm-cells = <3>;
+    };
+
+    pwm5: pwm5 {
+        status = "okay";
+        pinctrl-0 = <&tim3_ch2_pa7>;
+        pinctrl-names = "default";
+        #pwm-cells = <3>;
+    };
+
+};
+
+&timers5{
+    status = "okay";
+    st,prescaler = <1000>;
+
+    pwm1: pwm1 {
+        status = "okay";
+        pinctrl-0 = <&tim5_ch1_pa0>;
+        pinctrl-names = "default";
+        #pwm-cells = <3>;
+    };
+    
+    pwm2: pwm2 {
+        status = "okay";
+        pinctrl-0 = <&tim5_ch2_pa1>;
+        pinctrl-names = "default";
+        #pwm-cells = <3>;
+    };
+
+    pwm3: pwm3 {
+        status = "okay";
+        pinctrl-0 = <&tim5_ch3_pa2>;
+        pinctrl-names = "default";
+        #pwm-cells = <3>;
+    };
+};
+
+zephyr_udc0: &usbotg_fs {
+	pinctrl-0 = <&usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12>;
+	pinctrl-names = "default";
+	status = "okay";
+};
+
+&can1{
+    pinctrl-0 = <&can1_rx_pb8 &can1_tx_pb9>;
+    pinctrl-names = "default";
+    clocks = <&rcc STM32_CLOCK(APB1, 25U)>;
+    status = "okay";
+};
