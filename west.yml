@@ -25,6 +25,11 @@ manifest:
       revision: 1e753266ddfb4b07a8a0b1ec566e9637ea45d5ef
       path: ext/zephyr/modules/hal/stm32
 
+    - name: zscilib
+      remote: zephyrproject
+      revision: ee3c0c405087e331aad16d167b6e4ec1c3452ba9
+      path: ext/modules/zscilib
+
   self:
     path: .
     
