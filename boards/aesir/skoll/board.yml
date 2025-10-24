@@ -1,6 +1,5 @@
 board:
   name: skoll
-  full_name: skoll acs
   vendor: aesir
   socs:
     - name: stm32f405xx

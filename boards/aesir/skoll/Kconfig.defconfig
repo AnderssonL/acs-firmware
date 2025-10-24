@@ -1,3 +1,6 @@
+CONFIG_SOC_STM32F405XX=y
+
+
 # Enable MPU
 CONFIG_ARM_MPU=y
 
