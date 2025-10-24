@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.20.0)
 
 set(BOARD_ROOT ${CMAKE_CURRENT_LIST_DIR})
-
+set(BOARD skoll)
 
 list(APPEND EXTRA_ZEPHYR_MODULES
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/ms5611

@@ -1,1 +1,0 @@
-"mcuboot":"/home/faand/fjalar_firmware/deps/bootloader/mcuboot":"/home/faand/fjalar_firmware/deps/bootloader/mcuboot/boot/zephyr/sysbuild"
