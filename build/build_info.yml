@@ -1,4 +1,0 @@
-west:
-  command: /home/faand/fjalar_firmware/venv/bin/west build -b skoll --pristine
-  topdir: /home/faand/fjalar_firmware
-  version: 1.3.0
