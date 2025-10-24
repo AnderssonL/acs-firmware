@@ -24,6 +24,8 @@ alias, chosen (?)
     compatible = "aesir,skoll";
 
     chosen{
+		zephyr,flash = &flash0;
+        zephyr,sram = &sram0;
         zephyr,spi2 = &spi2;
         zephyr,can1 = &can1;
     };
