@@ -21,13 +21,15 @@ alias, chosen (?)
 
 / {
     model = "Skoll Active Control System";
-    compatible = "aesir,skoll";
-
+    compatible = "aesir,skoll", "st,stm32f405";
+    
     chosen{
 		zephyr,flash = &flash0;
         zephyr,sram = &sram0;
         zephyr,spi2 = &spi2;
         zephyr,can1 = &can1;
+        zephyr,console = &cdc_acm_uart1;
+        zephyr,shell-uart = &cdc_acm_uart1;
     };
 
     aliases{

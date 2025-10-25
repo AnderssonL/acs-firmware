@@ -11,7 +11,7 @@
 };
 
 &clk_hsi {
-	status = "okay";
+	status = "disabled";
 };
 
 &clk_lse {
@@ -27,6 +27,7 @@
 };
 
 &rcc {
+    compatible = "st,stm32f4-rcc", "st,stm32-rcc";
     status = "okay";
     clock-frequency = <DT_FREQ_M(160)>;  
     ahb-prescaler = <1>; 
@@ -108,4 +109,20 @@ zephyr_udc0: &usbotg_fs {
     pinctrl-names = "default";
     clocks = <&rcc STM32_CLOCK(APB1, 25U)>;
     status = "okay";
+};
+
+
+zephyr_udc0: &usbotg_fs {
+	pinctrl-0 = <&usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12>;
+	pinctrl-names = "default";
+	status = "okay";
+};
+
+&zephyr_udc0 {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+	cdc_acm_uart1: cdc_acm_uart1 {
+		compatible = "zephyr,cdc-acm-uart";
+	};
 };
