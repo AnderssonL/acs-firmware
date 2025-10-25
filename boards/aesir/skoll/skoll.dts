@@ -104,6 +104,7 @@ alias, chosen (?)
         // fix spi settings (look at driver?)
     };
 
+    /*
     icm20948: icm20948@1{
         compatible = "invensense,icm20948"; // fix driver
         reg = <1>;
@@ -112,6 +113,7 @@ alias, chosen (?)
         spi-max-frequency = <10000000>;
         // fix spi settings (look at driver?)
     };
+    */
 };
 
 

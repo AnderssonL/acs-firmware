@@ -7,7 +7,6 @@ set(BOARD skoll)
 
 list(APPEND EXTRA_ZEPHYR_MODULES
     ${CMAKE_CURRENT_SOURCE_DIR}/ext/modules/ms5611
-    ${CMAKE_CURRENT_SOURCE_DIR}/ext/modules/icm20948
 )
 
 find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
